@@ -6,7 +6,7 @@
 /*   By: gbaumgar <gbaumgar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:27:44 by gbaumgar          #+#    #+#             */
-/*   Updated: 2022/01/24 17:11:23 by gbaumgar         ###   ########.fr       */
+/*   Updated: 2022/01/27 19:40:00 by gbaumgar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,42 +23,37 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
+char	*ft_strcat(char *dest, char *src)
+{
+	int	i;
+	int	j;
+
+	i = ft_strlen(dest);
+	j = 0;
+	while (src[j] != '\0')
+		dest[i++] = src[j++];
+	dest[i] = '\0';
+	return (dest);
+}
+
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int		i;
-	int		j;
-	int		k;
 	int		length;
 	char	*str;
 
 	i = 0;
-	j = 0;
-	k = 0;
-	length = size * ft_strlen(sep) - 1;
-	printf("Coucou\n");
+	length = size * (ft_strlen(sep) - 1);
+	while (i < size)
+		length += ft_strlen(strs[i++]);
+	str = malloc(sizeof(char) * length);
+	i = 0;
 	while (i < size)
 	{
-		printf("XD\n");
-		length += ft_strlen(strs[i]);
+		ft_strcat(str, strs[i]);
+		if (i + 1 < size)
+			ft_strcat(str, sep);
 		i++;
-	}
-	printf("POG\n");
-	str = malloc(sizeof(char *) * length);
-	printf("PLANT\n");
-	while (j < size)
-	{
-		printf("z\n");
-		i = 0;
-		while (strs[j][i] != '\0')
-		{
-			printf("t\n");
-			str[k] = strs[j][i];
-			i++;
-			k++;
-		}
-		str[k] = sep[0];
-		k++;
-		j++;
 	}
 	return (str);
 }
