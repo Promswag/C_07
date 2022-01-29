@@ -6,7 +6,7 @@
 /*   By: gbaumgar <gbaumgar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:15:44 by gbaumgar          #+#    #+#             */
-/*   Updated: 2022/01/27 18:41:44 by gbaumgar         ###   ########.fr       */
+/*   Updated: 2022/01/29 11:25:53 by gbaumgar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 int	ft_ultimate_range(int **range, int min, int max)
 {
-	int	delta;
-	int	*ptr;
-	int	i;
+	long int	delta;
+	int			*tab;
+	long int	i;
 
 	if (min >= max)
 		return (NULL);
 	delta = max - min;
-	ptr = malloc(sizeof(int) * delta);
-	if (ptr == NULL)
+	tab = malloc(sizeof(int) * delta);
+	if (tab == NULL)
 		return (-1);
 	i = 0;
 	while (min < max)
 	{
-		ptr[i] = min++;
+		tab[i] = min++;
 		i++;
 	}
-	*range = ptr;
+	*range = tab;
 	return (delta);
 }
