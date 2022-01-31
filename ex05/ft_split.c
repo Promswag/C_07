@@ -17,11 +17,11 @@ int	ft_is_a_sep(char c, char *sep)
 	int	i;
 
 	i = -1;
+	if (c == '\0')
+		return (1);
 	while (sep[++i])
-	{
-		if (c == sep[i] || c == '\0')
+		if (c == sep[i])
 			return (1);
-	}
 	return (0);
 }
 

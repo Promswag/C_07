@@ -6,7 +6,7 @@
 /*   By: gbaumgar <gbaumgar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 11:27:08 by gbaumgar          #+#    #+#             */
-/*   Updated: 2022/01/29 13:13:54 by gbaumgar         ###   ########.fr       */
+/*   Updated: 2022/01/31 12:49:25 by gbaumgar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,10 @@ unsigned int	ft_scale(unsigned int nb, unsigned int size)
 	unsigned int	scale;
 
 	scale = 1;
-	while (nb > size)
+	while (nb >= size)
 	{
 		nb /= size;
 		scale *= size;
 	}
-	if (size == 2)
-		scale *= size;
 	return (scale);
 }

@@ -6,7 +6,7 @@
 /*   By: gbaumgar <gbaumgar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:27:44 by gbaumgar          #+#    #+#             */
-/*   Updated: 2022/01/27 19:40:00 by gbaumgar         ###   ########.fr       */
+/*   Updated: 2022/01/31 12:57:00 by gbaumgar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	char	*str;
 
 	i = 0;
-	length = size * (ft_strlen(sep) - 1);
+	if (size == 0)
+		return (str = malloc(sizeof(char)));
+	length = (size - 1) * ft_strlen(sep);
 	while (i < size)
 		length += ft_strlen(strs[i++]);
-	str = malloc(sizeof(char) * length);
+	str = malloc(sizeof(char) * length + 1);
 	i = 0;
 	while (i < size)
 	{
@@ -55,5 +57,6 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			ft_strcat(str, sep);
 		i++;
 	}
+	str[length] = '\0';
 	return (str);
 }

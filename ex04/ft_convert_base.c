@@ -6,12 +6,11 @@
 /*   By: gbaumgar <gbaumgar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 11:27:11 by gbaumgar          #+#    #+#             */
-/*   Updated: 2022/01/29 13:37:19 by gbaumgar         ###   ########.fr       */
+/*   Updated: 2022/01/31 12:49:27 by gbaumgar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int				ft_strlen(char *str);
 int				ft_char_is_whitespace(char c);
@@ -61,8 +60,6 @@ char	*ft_itoa_base(int nb, char *base)
 	scale = ft_scale(_nb, ft_strlen(base));
 	while (scale != 0)
 	{
-		if (!(i == 0 && _nb / scale == 0)
-			&& !(i == 1 && _nb / scale == 0 && str[i - 1] == '-'))
 			str[i++] = base[_nb / scale];
 		_nb %= scale;
 		scale /= ft_strlen(base);
